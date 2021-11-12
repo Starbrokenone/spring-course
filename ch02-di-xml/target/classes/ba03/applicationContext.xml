@@ -49,7 +49,7 @@
         <constructor-arg  value="48"></constructor-arg>
         <constructor-arg  ref="mySchool"></constructor-arg>
     </bean>
-
+    <!--创建File，构造注入-->
     <bean id="myFile" class="java.io.File">
         <constructor-arg name="parent" value="D:\project\spring-course\ch01-hello-spring"></constructor-arg>
         <constructor-arg  name="child" value="readme.txt"></constructor-arg>
