@@ -14,14 +14,21 @@
             <property name="属性名字" value="此属性的值"/>
             <property ......>
         </bean>
+        2）引用类型的set注入：spring调用类的set方法
+        <bean>
+            <property name="属性名字" ref="bean的id（对象的名称）"/>
+            <property ......>
+        </bean>
 
     -->
-    <bean id="myStudent" class="com.bjpowernode.ba01.Student">
+    <bean id="myStudent" class="com.bjpowernode.ba02.Student">
         <property name="name" value="李四"></property>
-        <property name="age" value="20"></property>
-        <property name="email" value="lisi@qq.com"></property>
+        <property name="age" value="26"></property>
+        <property name="school" ref="mySchool"></property>
+        <!--引用类型-->
     </bean>
-    <bean id="mydate" class="java.util.Date">
-        <property name="time" value="8469867"></property>
+    <bean id="mySchool" class="com.bjpowernode.ba02.School">
+        <property name="name" value="北京大学"></property>
+        <property name="address" value="海淀区"></property>
     </bean>
 </beans>

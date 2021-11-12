@@ -1,7 +1,7 @@
 package com.bjpowernode;
 
-import com.bjpowernode.ba01.Student;
-
+import com.bjpowernode.ba02.School;
+import com.bjpowernode.ba02.Student;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.Date;
 
 
-public class MyTest {
+public class MyTest02 {
 /*junit单元测试
 * 单元：指的是方法，一个类中有很多方法，一个方法称为单元
 * 使用单元测试
@@ -31,10 +31,10 @@ public class MyTest {
 * */
 
     @Test
-    public void test05(){
+    public void test01(){
         //使用spring容器创建的对象
         //1. 指定spring配置文件的名称
-        String config="ba01/applicationContext.xml";
+        String config="ba02/applicationContext.xml";
         //2. 创建表示spring容器的对象，ApplicationContext
         //ApplicationContext就是表示Spring容器，通过容器获取对象
         //ClassPathXmlApplicationContext:表示从类路径中加载Spring的配置文件
@@ -46,8 +46,21 @@ public class MyTest {
         //使用spring创建好的对象
         System.out.println(myStudent);
 
-        Date my  = (Date) ac.getBean("mydate");
-        System.out.println("Date"+my);
+
+    }
+    @Test
+    public void test02(){
+        //手动创建
+        Student student = new Student();
+        student.setName("李四");
+        student.setAge(20);
+        School school = new School();
+        school.setName("动力节点");
+        school.setAddress("北京");
+        student.setSchool(school);
+        System.out.println(student);
+
+
     }
 
 }

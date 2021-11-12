@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ch01-hello-spring" />
+        <module name="ch03-ioc-homework" />
         <module name="ch02-hello-spring" />
       </profile>
     </annotationProcessing>
@@ -14,6 +15,7 @@
       <module name="ch01-hello-spring" target="1.8" />
       <module name="ch02-di-xml" target="1.8" />
       <module name="ch02-hello-spring" target="1.8" />
+      <module name="ch03-ioc-homework" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

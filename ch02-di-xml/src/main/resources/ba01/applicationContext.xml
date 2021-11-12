@@ -8,7 +8,7 @@
     注入：就是赋值的意思
     简单类型：spring中规定的java基本数据类型和String都是简单类型
     di：给属性赋值
-    1. set注入（设置注入）:spring调用类的set方法，你可以在set方法中完成属性赋值。
+    1. set注入（设值注入）:spring调用类的set方法，你可以在set方法中完成属性赋值。
         1）简单类型的set注入
         <bean>
             <property name="属性名字" value="此属性的值"/>
@@ -19,5 +19,9 @@
     <bean id="myStudent" class="com.bjpowernode.ba01.Student">
         <property name="name" value="李四"></property>
         <property name="age" value="20"></property>
+        <property name="email" value="lisi@qq.com"></property>
+    </bean>
+    <bean id="mydate" class="java.util.Date">
+        <property name="time" value="8469867"></property>
     </bean>
 </beans>

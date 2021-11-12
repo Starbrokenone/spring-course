@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+    声明student对象
+    注入：就是赋值的意思
+    简单类型：spring中规定的java基本数据类型和String都是简单类型
+    di：给属性赋值
+    1. set注入（设值注入）:spring调用类的set方法，你可以在set方法中完成属性赋值。
+        1）简单类型的set注入
+        <bean>
+            <property name="属性名字" value="此属性的值"/>
+            <property ......>
+        </bean>
+        2）引用类型的set注入：spring调用类的set方法
+        <bean>
+            <property name="属性名字" ref="bean的id（对象的名称）"/>
+            <property ......>
+        </bean>
+    2. 构造注入：spring调用类的有参构造方法，在创建对象的同时，在构造方法中给属性赋值
+        构造注入使用<constructor-arg>标签
+        <constructor-arg>标签：一个<constructor-arg>表示构造方法一个参数
+        <constructor-arg>标签属性：
+            name：表示构造方法的参数名
+            index：表示构造方法参数的位置，参数从左往右是0，1，2
+            value：形参简单类型，使用value
+            ref：形参引用类型，用ref
+    -->
+
+    <!--使用name属性实现构造注入-->
+    <bean id="myStudent" class="com.bjpowernode.ba03.Student">
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="age" value="23"></constructor-arg>
+        <constructor-arg name="school" ref="mySchool"></constructor-arg>
+    </bean>
+
+    <!--使用index属性实现构造注入-->
+    <bean id="myStudent2" class="com.bjpowernode.ba03.Student">
+        <constructor-arg index="0" value="王五"></constructor-arg>
+        <constructor-arg index="1" value="25"></constructor-arg>
+        <constructor-arg index="2" ref="mySchool"></constructor-arg>
+    </bean>
+
+    <!--省略index-->
+    <bean id="myStudent3" class="com.bjpowernode.ba03.Student">
+        <constructor-arg  value="李云龙"></constructor-arg>
+        <constructor-arg  value="48"></constructor-arg>
+        <constructor-arg  ref="mySchool"></constructor-arg>
+    </bean>
+
+    <bean id="myFile" class="java.io.File">
+        <constructor-arg name="parent" value="D:\project\spring-course\ch01-hello-spring"></constructor-arg>
+        <constructor-arg  name="child" value="readme.txt"></constructor-arg>
+
+    </bean>
+
+    <!--声明School对象-->
+    <bean id="mySchool" class="com.bjpowernode.ba03.School">
+        <property name="name" value="清华大学"></property>
+        <property name="address" value="海淀区"></property>
+    </bean>
+</beans>
